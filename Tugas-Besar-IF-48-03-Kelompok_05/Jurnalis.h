@@ -1,0 +1,6 @@
+#ifndef JURNALIS_H_INCLUDED
+#define JURNALIS_H_INCLUDED
+
+
+
+#endif // JURNALIS_H_INCLUDED
