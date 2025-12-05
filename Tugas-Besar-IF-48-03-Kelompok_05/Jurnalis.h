@@ -11,8 +11,6 @@ struct dataJurnalis {
     string nama;
     int umur;
     string gender;
-    int umur;
-    string gender;
 };
 
 struct elemenJurnalis {
