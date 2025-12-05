@@ -1,8 +1,12 @@
 #ifndef BERITA_H_INCLUDED
 #define BERITA_H_INCLUDED
+#ifndef BERITA_H_INCLUDED
+#define BERITA_H_INCLUDED
 
 #include <iostream>
 using namespace std;
+
+typedef struct elemenBerita *adrBerita;
 
 struct dataBerita {
     string id;
@@ -13,29 +17,32 @@ struct dataBerita {
 
 struct elemenBerita {
     dataBerita info;
-    elemenBerita *next;
-    elemenBerita *prev;
+    adrBerita next;
+    adrBerita prev;
 };
 
 struct listBerita {
-    elemenBerita *first;
-    elemenBerita *last;
+    adrBerita first;
+    adrBerita last;
 };
 
-void buatListBerita(listBerita &L);
-elemenBerita* buatElemenBerita(dataBerita dataBaru);
-bool listBeritaKosong(listBerita L);
-void tampilkanSemuaBerita(listBerita L);
-void sisipBeritaAwal(listBerita &L, elemenBerita *p);
-void sisipBeritaAkhir(listBerita &L, elemenBerita *p);
-void sisipBeritaSetelah(listBerita &L, string idPatokan, elemenBerita *p);
-elemenBerita* cariBerita(listBerita L, string idDicari);
-void hapusBeritaAwal(listBerita &L);
-void hapusBeritaAkhir(listBerita &L);
-void hapusBeritaTertentu(listBerita &L, string idHapus);
-int hitungJumlahBerita(listBerita L);
-elemenBerita* cariBeritaKategori(listBerita L, string kategori);
-void updateDataBerita(listBerita &L, string idTarget);
-void menuKelolaBerita(listBerita &L);
+void createNewsList(listBerita &L);
+adrBerita createNewsElement(dataBerita newData);
+bool isNewsListEmpty(listBerita L);
+void showAllNews(listBerita L);
+void insertNewsFirst(listBerita &L, adrBerita p);
+void insertNewsLast(listBerita &L, adrBerita p);
+void insertNewsAfter(listBerita &L, string idKey, adrBerita p);
+adrBerita findNewsByID(listBerita L, string idKey);
+adrBerita findNewsByCategory(listBerita L, string categoryKey);
+void deleteNewsFirst(listBerita &L);
+void deleteNewsLast(listBerita &L);
+void deleteNewsByID(listBerita &L, string idDelete);
+void updateNews(listBerita &L, string idTarget);
+int countNews(listBerita L);
+int countNewsByCategory(listBerita L, string categoryKey);
+adrBerita getNewestNews(listBerita L);
+adrBerita getOldestNews(listBerita L);
+void menuNewsAdmin(listBerita &L);
 
 #endif

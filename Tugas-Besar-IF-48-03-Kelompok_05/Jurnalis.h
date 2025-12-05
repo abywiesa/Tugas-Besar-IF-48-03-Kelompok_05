@@ -1,39 +1,47 @@
 #ifndef JURNALIS_H_INCLUDED
 #define JURNALIS_H_INCLUDED
+#ifndef JURNALIS_H_INCLUDED
+#define JURNALIS_H_INCLUDED
 
 #include <iostream>
 using namespace std;
+
+typedef struct elemenJurnalis *adrJurnalis;
 
 struct dataJurnalis {
     string id;
     string nama;
     int umur;
     string gender;
+    int umur;
+    string gender;
 };
 
 struct elemenJurnalis {
     dataJurnalis info;
-    elemenJurnalis *next;
+    adrJurnalis next;
 };
 
 struct listJurnalis {
-    elemenJurnalis *first;
+    adrJurnalis first;
 };
 
-void buatListJurnalis(listJurnalis &L);
-elemenJurnalis* buatElemenJurnalis(dataJurnalis dataBaru);
-bool listJurnalisKosong(listJurnalis L);
-void tampilkanSemuaJurnalis(listJurnalis L);
-void sisipJurnalisAwal(listJurnalis &L, elemenJurnalis *p);
-void sisipJurnalisAkhir(listJurnalis &L, elemenJurnalis *p);
-void sisipJurnalisSetelah(listJurnalis &L, string idPatokan, elemenJurnalis *p);
-elemenJurnalis* cariJurnalis(listJurnalis L, string idDicari);
-void hapusJurnalisAwal(listJurnalis &L);
-void hapusJurnalisAkhir(listJurnalis &L);
-void hapusJurnalisTertentu(listJurnalis &L, string idHapus);
-int hitungJumlahJurnalis(listJurnalis L);
-elemenJurnalis* cariJurnalisNama(listJurnalis L, string nama);
-void updateDataJurnalis(listJurnalis &L, string idTarget);
-void menuKelolaJurnalis(listJurnalis &L);
+void createJournalistList(listJurnalis &L);
+adrJurnalis createJournalistElement(dataJurnalis newData);
+bool isJournalistListEmpty(listJurnalis L);
+void showAllJournalists(listJurnalis L);
+void insertJournalistFirst(listJurnalis &L, adrJurnalis p);
+void insertJournalistLast(listJurnalis &L, adrJurnalis p);
+void insertJournalistAfter(listJurnalis &L, string idKey, adrJurnalis p);
+adrJurnalis findJournalistByID(listJurnalis L, string idKey);
+adrJurnalis findJournalistByName(listJurnalis L, string nameKey);
+void deleteJournalistFirst(listJurnalis &L);
+void deleteJournalistLast(listJurnalis &L);
+void deleteJournalistByID(listJurnalis &L, string idDelete);
+void updateJournalist(listJurnalis &L, string idTarget);
+int countJournalists(listJurnalis L);
+void showMaleJournalists(listJurnalis L);
+void showFemaleJournalists(listJurnalis L);
+void menuJournalistAdmin(listJurnalis &L);
 
 #endif
