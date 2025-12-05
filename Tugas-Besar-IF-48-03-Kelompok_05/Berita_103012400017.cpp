@@ -103,7 +103,7 @@ adrBerita getNewestNews(listBerita L) {
 }
 
 void menuNewsAdmin(listBerita &L) {
-    int choice = -1;   // default bukan 0
+    int choice = -1;
 
     while (choice != 0) {
         cout << "\n=== MENU ADMIN BERITA ===\n";
