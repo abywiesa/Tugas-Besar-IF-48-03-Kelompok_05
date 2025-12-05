@@ -1,7 +1,5 @@
 #ifndef JURNALIS_H_INCLUDED
 #define JURNALIS_H_INCLUDED
-#ifndef JURNALIS_H_INCLUDED
-#define JURNALIS_H_INCLUDED
 
 #include <iostream>
 using namespace std;
