@@ -1,5 +1,7 @@
 #ifndef BERITA_H_INCLUDED
 #define BERITA_H_INCLUDED
+#ifndef BERITA_H_INCLUDED
+#define BERITA_H_INCLUDED
 
 #include <iostream>
 using namespace std;

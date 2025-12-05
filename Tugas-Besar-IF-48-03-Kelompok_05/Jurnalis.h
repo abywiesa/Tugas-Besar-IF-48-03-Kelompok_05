@@ -1,5 +1,7 @@
 #ifndef JURNALIS_H_INCLUDED
 #define JURNALIS_H_INCLUDED
+#ifndef JURNALIS_H_INCLUDED
+#define JURNALIS_H_INCLUDED
 
 #include <iostream>
 using namespace std;
@@ -9,6 +11,8 @@ typedef struct elemenJurnalis *adrJurnalis;
 struct dataJurnalis {
     string id;
     string nama;
+    int umur;
+    string gender;
     int umur;
     string gender;
 };
