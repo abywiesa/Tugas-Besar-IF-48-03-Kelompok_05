@@ -78,7 +78,7 @@ void updateJournalist(listJurnalis &L, string idTarget){
     cout << "Nama: ";
     cin >> p->info.nama;
     cout << "Umur: ";
-    cin >> p->info.umur
+    cin >> p->info.umur;
 };
 
 void showMaleJournalists(listJurnalis L) {
@@ -167,15 +167,16 @@ void menuJournalistAdmin(listJurnalis &L) {
             cout << "Masukkan ID yang ingin dihapus: "; cin >> key;
             deleteJournalistByID(L, key);
             break;
-        case 7:
-            cout << "Masukkan Nama yang dicari: "; cin >> key;
-            adrJurnalis result = findJournalistByName(L, key);
-            if (result != nullptr) {
-                cout << "Ditemukan! ID: " << result->info.id << ", Umur: " << result->info.umur << endl;
+        case 7: {
+             cout << "Masukkan Nama yang dicari: "; cin >> key;
+             adrJurnalis result = findJournalistByName(L, key);
+             if (result != nullptr) {
+               cout << "Ditemukan! ID: " << result->info.id << ", Umur: " << result->info.umur << endl;
             } else {
-                cout << "Jurnalis dengan nama " << key << " tidak ditemukan.\n";
+              cout << "Jurnalis dengan nama " << key << " tidak ditemukan.\n";
             }
             break;
+        }
         case 8:
             cout << "Masukkan ID yang akan diupdate: "; cin >> key;
             updateJournalist(L, key);

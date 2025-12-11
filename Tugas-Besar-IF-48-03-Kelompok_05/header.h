@@ -1,12 +1,11 @@
-#ifndef BERITA_H_INCLUDED
-#define BERITA_H_INCLUDED
-#ifndef JURNALIS_H_INCLUDED
-#define JURNALIS_H_INCLUDED
-
+#ifndef HEADER_H
+#define HEADER_H
 
 #include <iostream>
+#include <string>
 using namespace std;
 
+// STRUKTUR DATA BERITA 
 typedef struct elemenBerita *adrBerita;
 
 struct dataBerita {
@@ -27,6 +26,7 @@ struct listBerita {
     adrBerita last;
 };
 
+// fungsi berita
 void createNewsList(listBerita &L);
 adrBerita createNewsElement(dataBerita newData);
 bool isNewsListEmpty(listBerita L);
@@ -46,8 +46,7 @@ adrBerita getNewestNews(listBerita L);
 adrBerita getOldestNews(listBerita L);
 void menuNewsAdmin(listBerita &L);
 
-#endif
-
+// STRUKTUR DATA JURNALIS
 typedef struct elemenJurnalis *adrJurnalis;
 
 struct dataJurnalis {
@@ -66,6 +65,7 @@ struct listJurnalis {
     adrJurnalis first;
 };
 
+//fungsi jurnalis
 void createJournalistList(listJurnalis &L);
 adrJurnalis createJournalistElement(dataJurnalis newData);
 bool isJournalistListEmpty(listJurnalis L);

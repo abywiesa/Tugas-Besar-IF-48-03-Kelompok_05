@@ -1,4 +1,4 @@
-#include "berita.h"
+#include "header.h"
 #include <iostream>
 using namespace std;
 
