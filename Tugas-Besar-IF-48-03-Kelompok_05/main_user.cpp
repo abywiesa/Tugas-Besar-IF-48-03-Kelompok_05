@@ -52,29 +52,34 @@ int getValidUmur() {
         getline(cin, input);
 
         if (input.empty()) {
-            cout << "Umur tidak boleh kosong: ";
+            cout << "Umur tidak boleh kosong. Silakan input ulang.\n";
             continue;
         }
 
         bool isNumber = true;
-        for (char c : input) {
-            if (!isdigit(c)) {
+        for (size_t i = 0; i < input.length(); i++) {
+            if (!isdigit(input[i])) {
                 isNumber = false;
                 break;
             }
         }
 
         if (!isNumber) {
-            cout << "Umur harus ANGKA: ";
+            cout << "Input tidak valid! Umur harus berupa angka.\n";
+            cout << "Silakan input umur lagi.\n";
             continue;
         }
 
-        umur = stoi(input);
+        umur = 0;
+        for (size_t i = 0; i < input.length(); i++) {
+            umur = umur * 10 + (input[i] - '0');
+        }
 
         if (umur > 0 && umur <= 120) {
             return umur;
         } else {
-            cout << "Umur harus 1-120 tahun: ";
+            cout << "Umur harus antara 1-120 tahun.\n";
+            cout << "Silakan input umur lagi.\n";
         }
     }
 }
