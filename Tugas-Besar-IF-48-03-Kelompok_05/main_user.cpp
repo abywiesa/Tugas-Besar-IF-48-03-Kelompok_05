@@ -6,19 +6,12 @@ using namespace std;
 
 int getValidMenuChoice(int minChoice, int maxChoice) {
     string input;
-    int choice;
 
     while (true) {
         cout << "Pilihan: ";
         getline(cin, input);
 
-        if (input.empty()) {
-            cout << "Input tidak boleh kosong. Masukkan angka "
-                 << minChoice << "-" << maxChoice << ": ";
-            continue;
-        }
-
-        bool isNumber = true;
+        bool isNumber = !input.empty();
         for (char c : input) {
             if (!isdigit(c)) {
                 isNumber = false;
@@ -27,60 +20,48 @@ int getValidMenuChoice(int minChoice, int maxChoice) {
         }
 
         if (!isNumber) {
-            cout << "Input harus ANGKA. Masukkan angka "
-                 << minChoice << "-" << maxChoice << ": ";
+            cout << "Input harus berupa ANGKA!\n";
             continue;
         }
 
-        choice = stoi(input);
-
-        if (choice >= minChoice && choice <= maxChoice) {
-            return choice;
-        } else {
-            cout << "Pilihan harus antara " << minChoice << " dan "
-                 << maxChoice << ". Coba lagi: ";
+        int choice = stoi(input);
+        if (choice < minChoice || choice > maxChoice) {
+            cout << "Pilihan harus antara " << minChoice
+                 << " - " << maxChoice << "!\n";
+            continue;
         }
+
+        return choice;
     }
 }
 
 int getValidUmur() {
     string input;
-    int umur;
 
     while (true) {
         cout << "Umur: ";
         getline(cin, input);
 
-        if (input.empty()) {
-            cout << "Umur tidak boleh kosong. Silakan input ulang.\n";
-            continue;
-        }
-
-        bool isNumber = true;
-        for (size_t i = 0; i < input.length(); i++) {
-            if (!isdigit(input[i])) {
+        bool isNumber = !input.empty();
+        for (char c : input) {
+            if (!isdigit(c)) {
                 isNumber = false;
                 break;
             }
         }
 
         if (!isNumber) {
-            cout << "Input tidak valid! Umur harus berupa angka.\n";
-            cout << "Silakan input umur lagi.\n";
+            cout << "Umur harus berupa ANGKA!\n";
             continue;
         }
 
-        umur = 0;
-        for (size_t i = 0; i < input.length(); i++) {
-            umur = umur * 10 + (input[i] - '0');
+        int umur = stoi(input);
+        if (umur < 1 || umur > 120) {
+            cout << "Umur harus antara 1 - 120 tahun!\n";
+            continue;
         }
 
-        if (umur > 0 && umur <= 120) {
-            return umur;
-        } else {
-            cout << "Umur harus antara 1-120 tahun.\n";
-            cout << "Silakan input umur lagi.\n";
-        }
+        return umur;
     }
 }
 
