@@ -3,13 +3,7 @@
 
 using namespace std;
 
-int main() {
-    listJurnalis LJ;
-    listBerita LB;
-
-    createJournalistList(LJ);
-    createNewsList(LB);
-
+void menuAdminSederhana(listJurnalis &LJ, listBerita &LB) {
     int pilihan = -1;
     while (pilihan != 0) {
         cout << "\n================================" << endl;
@@ -23,10 +17,10 @@ int main() {
 
         switch (pilihan) {
         case 1:
-            menuJournalistAdmin(LJ); 
+            menuJournalistAdmin(LJ);
             break;
         case 2:
-            menuNewsAdmin(LB); 
+            menuNewsAdmin(LB);
             break;
         case 0:
             cout << "Terima kasih." << endl;
@@ -35,5 +29,4 @@ int main() {
             cout << "Pilihan salah." << endl;
         }
     }
-    return 0;
 }
