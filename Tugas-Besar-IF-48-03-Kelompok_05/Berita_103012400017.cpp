@@ -187,6 +187,15 @@ void menuNewsAdmin(listBerita &L, listJurnalis &LJ) {
         cin >> choice;
 
         if (choice == 1) {
+            if (isJournalistListEmpty(LJ)) {
+                cout << "\n[!] Tidak ada data jurnalis!\n";
+                cout << "   Silakan tambah jurnalis terlebih dahulu di Menu Admin Jurnalis.\n";
+                cout << "   Tekan Enter untuk kembali...";
+                cin.ignore();
+                cin.get();
+                continue;
+            }
+
             dataBerita d;
             cin.ignore();
 
@@ -219,22 +228,42 @@ void menuNewsAdmin(listBerita &L, listJurnalis &LJ) {
             showAllJournalists(LJ);
 
             bool validJurnalis = false;
-            while (!validJurnalis) {
-                cout << "\nID Jurnalis (contoh: J001): ";
+            int attemptCount = 0;
+            const int MAX_ATTEMPTS = 3;
+
+            while (!validJurnalis && attemptCount < MAX_ATTEMPTS) {
+                cout << "\nID Jurnalis (contoh: J001) atau ketik 'batal' untuk membatalkan: ";
                 getline(cin, d.idJurnalis);
+
+                if (d.idJurnalis == "batal" || d.idJurnalis == "BATAL") {
+                    cout << "Penambahan berita dibatalkan.\n";
+                    break;
+                }
 
                 if (d.idJurnalis.empty()) {
                     cout << "[X] ID tidak boleh kosong!\n";
                 } else if (findJournalistByID(LJ, d.idJurnalis) == nullptr) {
                     cout << "[X] ID Jurnalis '" << d.idJurnalis << "' tidak ditemukan!\n";
-                    cout << "    Gunakan ID dari daftar di atas.\n";
+                    attemptCount++;
+
+                    if (attemptCount < MAX_ATTEMPTS) {
+                        cout << "    (Percobaan " << attemptCount << "/" << MAX_ATTEMPTS << ")\n";
+                        cout << "\n--- Daftar Jurnalis Tersedia ---\n";
+                        showAllJournalists(LJ);
+                    } else {
+                        cout << "\n[X] Maksimal percobaan (" << MAX_ATTEMPTS << "x) tercapai.\n";
+                        cout << "    Penambahan berita dibatalkan.\n";
+                        break;
+                    }
                 } else {
                     validJurnalis = true;
                 }
             }
 
-            insertNewsLast(L, createNewsElement(d));
-            cout << "\n[OK] Berita berhasil ditambahkan!\n";
+            if (validJurnalis) {
+                insertNewsLast(L, createNewsElement(d));
+                cout << "\n[OK] Berita berhasil ditambahkan!\n";
+            }
         }
         else if (choice == 2) {
             string x;
@@ -262,6 +291,12 @@ void menuNewsAdmin(listBerita &L, listJurnalis &LJ) {
             cout << "Masukkan ID Jurnalis: ";
             getline(cin, idJ);
             showNewsByJournalist(L, LJ, idJ);
+        }
+        else if (choice == 0) {
+            cout << "Kembali ke menu utama...\n";
+        }
+        else {
+            cout << "Pilihan tidak valid!\n";
         }
     }
 }
