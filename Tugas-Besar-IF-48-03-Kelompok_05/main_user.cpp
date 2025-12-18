@@ -35,35 +35,7 @@ int getValidMenuChoice(int minChoice, int maxChoice) {
     }
 }
 
-int getValidUmur() {
-    string input;
 
-    while (true) {
-        cout << "Umur: ";
-        getline(cin, input);
-
-        bool isNumber = !input.empty();
-        for (char c : input) {
-            if (!isdigit(c)) {
-                isNumber = false;
-                break;
-            }
-        }
-
-        if (!isNumber) {
-            cout << "Umur harus berupa ANGKA!\n";
-            continue;
-        }
-
-        int umur = stoi(input);
-        if (umur < 1 || umur > 120) {
-            cout << "Umur harus antara 1 - 120 tahun!\n";
-            continue;
-        }
-
-        return umur;
-    }
-}
 
 void loadDummyData(listBerita &LB, listJurnalis &LJ) {
     cout << "\n+========================================+\n";
@@ -82,6 +54,9 @@ void loadDummyData(listBerita &LB, listJurnalis &LJ) {
     insertJournalistLast(LJ, createJournalistElement(j4));
     insertJournalistLast(LJ, createJournalistElement(j5));
 
+<<<<<<< HEAD
+    cout << " 5 Berita dan 5 Jurnalis berhasil dimuat!\n";
+=======
     dataBerita b1 = {"B001", "Pemilu 2024 Digelar Sukses", "Politik", "2024-02-14", "J001"};
     dataBerita b2 = {"B002", "Gempa Bumi Guncang Jawa Barat", "Bencana", "2024-03-10", "J002"};
     dataBerita b3 = {"B003", "Timnas Indonesia Menang Telak", "Olahraga", "2024-04-05", "J003"};
@@ -96,6 +71,7 @@ void loadDummyData(listBerita &LB, listJurnalis &LJ) {
 
     cout << "[OK] 5 Berita dan 5 Jurnalis berhasil dimuat!\n";
     cout << "[INFO] Setiap berita sudah terhubung dengan jurnalis.\n";
+>>>>>>> 8d4acfae3ae6bfd3468c93ae86af217a498da2fe
 }
 
 bool isNewsIDDuplicate(listBerita L, string id) {

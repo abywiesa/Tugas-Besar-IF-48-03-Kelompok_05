@@ -185,6 +185,7 @@ void menuNewsAdmin(listBerita &L, listJurnalis &LJ) {
         cout << "0. Kembali\n";
         cout << "Pilihan: ";
         cin >> choice;
+        cin.ignore(); // PENTING: Clear buffer setelah cin >>
 
         if (choice == 1) {
             if (isJournalistListEmpty(LJ)) {
@@ -197,6 +198,19 @@ void menuNewsAdmin(listBerita &L, listJurnalis &LJ) {
             }
 
             dataBerita d;
+<<<<<<< HEAD
+            cout << "Masukkan Data Berita:\n";
+            d.id = getValidString("ID: ");
+            d.judul = getValidString("Judul: ");
+            d.kategori = getValidString("Kategori: ");
+            d.tanggal = getValidString("Tanggal: ");
+
+            insertNewsLast(L, createNewsElement(d));
+            cout << "Berita berhasil ditambahkan!\n";
+        }
+        else if (choice == 2) {
+            string x = getValidString("Masukkan ID: ");
+=======
             cin.ignore();
 
             cout << "\n--- TAMBAH BERITA BARU ---\n";
@@ -270,12 +284,16 @@ void menuNewsAdmin(listBerita &L, listJurnalis &LJ) {
             cin.ignore();
             cout << "Masukkan ID: ";
             getline(cin, x);
+>>>>>>> 8d4acfae3ae6bfd3468c93ae86af217a498da2fe
             deleteNewsByID(L, x);
         }
         else if (choice == 3) {
             showAllNews(L);
         }
         else if (choice == 4) {
+<<<<<<< HEAD
+            string id = getValidString("ID yang akan diperbarui: ");
+=======
             showAllNewsWithJournalist(L, LJ);
         }
         else if (choice == 5) {
@@ -283,6 +301,7 @@ void menuNewsAdmin(listBerita &L, listJurnalis &LJ) {
             cin.ignore();
             cout << "ID yang akan diperbarui: ";
             getline(cin, id);
+>>>>>>> 8d4acfae3ae6bfd3468c93ae86af217a498da2fe
             updateNews(L, id);
         }
         else if (choice == 6) {

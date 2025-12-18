@@ -85,4 +85,10 @@ void showNewsByJournalist(listBerita LB, listJurnalis LJ, string idJurnalis);
 int countNewsByJournalist(listBerita LB, string idJurnalis);
 void insertNewsFromJournalist(listBerita &LB, listJurnalis &LJ, string idJurnalis);
 
+
+int getValidInteger(const string& prompt);
+int getValidUmur();
+char getValidGender();
+string getValidString(const string& prompt);
+
 #endif
