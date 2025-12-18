@@ -40,6 +40,7 @@ adrJurnalis findJournalistByName(listJurnalis L, string nameKey){
     }
     return nullptr;
 };
+
 void deleteJournalistLast(listJurnalis &L) {
     if (isJournalistListEmpty(L)) {
         cout << "List kosong, tidak ada yang dihapus.\n";
@@ -51,10 +52,10 @@ void deleteJournalistLast(listJurnalis &L) {
     if (p->next == nullptr) {
         L.first = nullptr;
         delete p;
-    } 
+    }
     else {
         adrJurnalis prev = nullptr;
-        
+
         while (p->next != nullptr) {
             prev = p;
             p = p->next;
@@ -79,6 +80,9 @@ void updateJournalist(listJurnalis &L, string idTarget){
     cin >> p->info.nama;
     cout << "Umur: ";
     cin >> p->info.umur;
+    cout << "Gender (L/P): ";
+    cin >> p->info.gender;
+    cout << "Data berhasil diupdate.\n";
 };
 
 void showMaleJournalists(listJurnalis L) {
@@ -104,7 +108,51 @@ void showMaleJournalists(listJurnalis L) {
     }
 }
 
-void menuJournalistAdmin(listJurnalis &L) {
+void insertNewsFromJournalist(listBerita &LB, listJurnalis &LJ, string idJurnalis) {
+    adrJurnalis j = findJournalistByID(LJ, idJurnalis);
+
+    if (j == nullptr) {
+        cout << "Jurnalis tidak ditemukan!\n";
+        return;
+    }
+
+    char lanjut = 'y';
+
+    while (lanjut == 'y' || lanjut == 'Y') {
+        dataBerita d;
+
+        cout << "\n--- TAMBAH BERITA OLEH: " << j->info.nama << " ---\n";
+        cout << "ID Berita: ";
+        cin >> d.id;
+        cin.ignore();
+
+        if (findNewsByID(LB, d.id) != nullptr) {
+            cout << "[X] ID Berita sudah digunakan!\n";
+            cout << "Tambah berita lagi? (y/n): ";
+            cin >> lanjut;
+            cin.ignore();
+            continue;
+        }
+
+        cout << "Judul: ";
+        getline(cin, d.judul);
+        cout << "Kategori: ";
+        getline(cin, d.kategori);
+        cout << "Tanggal (YYYY-MM-DD): ";
+        getline(cin, d.tanggal);
+
+        d.idJurnalis = idJurnalis;
+
+        insertNewsLast(LB, createNewsElement(d));
+        cout << "[OK] Berita berhasil ditambahkan!\n";
+
+        cout << "\nTambah berita lagi? (y/n): ";
+        cin >> lanjut;
+        cin.ignore();
+    }
+}
+
+void menuJournalistAdmin(listJurnalis &L, listBerita &LB) {
     int choice = -1;
     dataJurnalis d;
     string key;
@@ -129,6 +177,9 @@ void menuJournalistAdmin(listJurnalis &L) {
         cout << "10. Tampilkan Jurnalis Laki-laki\n";
         cout << "11. Tampilkan Jurnalis Perempuan\n";
         cout << "12. Hitung Total Jurnalis\n";
+        cout << "--- BERITA ---\n";
+        cout << "13. Jurnalis Menulis Berita\n";
+        cout << "14. Lihat Berita Jurnalis\n";
         cout << "0. Keluar\n";
         cout << "--------------------------------\n";
         cout << "Pilihan: ";
@@ -138,8 +189,20 @@ void menuJournalistAdmin(listJurnalis &L) {
 
         if (choice >= 1 && choice <= 3) {
             cout << "Masukkan Data Jurnalis Baru:\n";
-            cout << "ID: "; cin >> d.id;
-            cout << "Nama: "; cin >> d.nama;
+
+            bool validID = false;
+            while (!validID) {
+                cout << "ID: "; cin >> d.id;
+
+                if (findJournalistByID(L, d.id) != nullptr) {
+                    cout << "[X] ID '" << d.id << "' sudah digunakan! Gunakan ID lain.\n";
+                } else {
+                    validID = true;
+                }
+            }
+
+            cin.ignore();
+            cout << "Nama: "; getline(cin, d.nama);
             cout << "Umur: "; cin >> d.umur;
             cout << "Gender (L/P): "; cin >> d.gender;
         }
@@ -168,7 +231,9 @@ void menuJournalistAdmin(listJurnalis &L) {
             deleteJournalistByID(L, key);
             break;
         case 7: {
-             cout << "Masukkan Nama yang dicari: "; cin >> key;
+             cin.ignore();
+             cout << "Masukkan Nama yang dicari: ";
+             getline(cin, key);
              adrJurnalis result = findJournalistByName(L, key);
              if (result != nullptr) {
                cout << "Ditemukan! ID: " << result->info.id << ", Umur: " << result->info.umur << endl;
@@ -192,6 +257,18 @@ void menuJournalistAdmin(listJurnalis &L) {
             break;
         case 12:
             cout << "Total Jurnalis saat ini: " << countJournalists(L) << " orang.\n";
+            break;
+        case 13:
+            cin.ignore();
+            cout << "Masukkan ID Jurnalis: ";
+            getline(cin, key);
+            insertNewsFromJournalist(LB, L, key);
+            break;
+        case 14:
+            cin.ignore();
+            cout << "Masukkan ID Jurnalis: ";
+            getline(cin, key);
+            showNewsByJournalist(LB, L, key);
             break;
         case 0:
             cout << "Terima kasih. Program selesai.\n";

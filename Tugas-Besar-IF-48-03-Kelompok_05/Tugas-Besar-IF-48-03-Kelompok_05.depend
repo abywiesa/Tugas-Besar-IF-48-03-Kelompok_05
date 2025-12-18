@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1766038559 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\berita_103012400017.cpp
+	"header.h"
+	<iostream>
+
+1766038553 c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\header.h
+	<iostream>
+	<string>
+
+1766036278 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\berita_103012400279.cpp
+	"header.h"
+	<iostream>
+
+1765504981 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\jurnalis_103012400017.cpp
+	"header.h"
+	<iostream>
+
+1766038557 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\jurnalis_103012400279.cpp
+	"header.h"
+	<iostream>
+
+1766036236 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\main.cpp
+	"header.h"
+	<iostream>
+	<string>
+	<cstdlib>
+
+1766036226 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\main_admin.cpp
+	"header.h"
+	<iostream>
+
+1766038555 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\main_user.cpp
+	"header.h"
+	<iostream>
+	<string>
+	<cstdlib>
+

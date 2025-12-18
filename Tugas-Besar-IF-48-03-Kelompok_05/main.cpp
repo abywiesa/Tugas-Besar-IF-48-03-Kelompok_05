@@ -80,6 +80,7 @@ int main() {
         cout << "| [2] Menu Admin Jurnalis                      |\n";
         cout << "|     - Kelola data jurnalis (tambah, hapus,   |\n";
         cout << "|       edit, cari)                            |\n";
+        cout << "|     - Jurnalis bisa menulis berita           |\n";
         cout << "+-----------------------------------------------+\n";
         cout << "| [3] Menu User                                |\n";
         cout << "|     - Study case dengan data dummy           |\n";
@@ -127,14 +128,14 @@ int main() {
                         case 1:
                             system("cls");
                             cout << "\nMEMUAT MENU ADMIN BERITA...\n";
-                            menuNewsAdmin(beritaAdmin);
+                            menuNewsAdmin(beritaAdmin, jurnalisAdmin);
                             break;
 
                         case 2:
                             while (beritaAdmin.first != nullptr) {
                                 deleteNewsFirst(beritaAdmin);
                             }
-                            cout << "\n✓ Data berita admin telah direset!\n";
+                            cout << "\n[OK] Data berita admin telah direset!\n";
                             displayFooter();
                             cin.get();
                             break;
@@ -183,14 +184,14 @@ int main() {
                         case 1:
                             system("cls");
                             cout << "\nMEMUAT MENU ADMIN JURNALIS...\n";
-                            menuJournalistAdmin(jurnalisAdmin);
+                            menuJournalistAdmin(jurnalisAdmin, beritaAdmin);
                             break;
 
                         case 2:
                             while (jurnalisAdmin.first != nullptr) {
                                 deleteJournalistFirst(jurnalisAdmin);
                             }
-                            cout << "\n✓ Data jurnalis admin telah direset!\n";
+                            cout << "\n[OK] Data jurnalis admin telah direset!\n";
                             displayFooter();
                             cin.get();
                             break;
@@ -253,7 +254,7 @@ int main() {
                             while (jurnalisUser.first != nullptr) {
                                 deleteJournalistFirst(jurnalisUser);
                             }
-                            cout << "\n✓ Data user telah direset!\n";
+                            cout << "\n[OK] Data user telah direset!\n";
                             cout << "Data dummy akan dimuat ulang saat masuk menu user.\n";
                             displayFooter();
                             cin.get();
@@ -272,6 +273,7 @@ int main() {
                             cout << "7. Tampilkan data terbaru/terlama\n";
                             cout << "8. Hitung total data\n";
                             cout << "9. Filter berdasarkan kategori/gender\n";
+                            cout << "10. Relasi jurnalis-berita (many-to-many)\n";
                             cout << "\nMenu user dirancang untuk study case\n";
                             cout << "dengan validasi input yang lengkap.\n";
                             displayFooter();

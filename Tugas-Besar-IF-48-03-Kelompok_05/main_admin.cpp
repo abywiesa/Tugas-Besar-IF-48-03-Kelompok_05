@@ -17,10 +17,10 @@ void menuAdminSederhana(listJurnalis &LJ, listBerita &LB) {
 
         switch (pilihan) {
         case 1:
-            menuJournalistAdmin(LJ);
+            menuJournalistAdmin(LJ, LB);
             break;
         case 2:
-            menuNewsAdmin(LB);
+            menuNewsAdmin(LB, LJ);
             break;
         case 0:
             cout << "Terima kasih." << endl;

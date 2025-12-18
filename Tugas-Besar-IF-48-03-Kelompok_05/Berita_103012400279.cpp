@@ -75,9 +75,11 @@ void updateNews(listBerita &L, string idTarget) {
     } else {
         cout << "Data Ditemukan. Masukkan data baru:\n";
         cout << "ID Baru      : "; cin >> p->info.id;
-        cout << "Judul Baru   : "; cin >> p->info.judul;
-        cout << "Kategori Baru: "; cin >> p->info.kategori;
-        cout << "Tanggal Baru : "; cin >> p->info.tanggal;
+        cin.ignore();
+        cout << "Judul Baru   : "; getline(cin, p->info.judul);
+        cout << "Kategori Baru: "; getline(cin, p->info.kategori);
+        cout << "Tanggal Baru : "; getline(cin, p->info.tanggal);
+        cout << "ID Jurnalis  : "; getline(cin, p->info.idJurnalis);
         cout << "Update berhasil.\n";
     }
 }
