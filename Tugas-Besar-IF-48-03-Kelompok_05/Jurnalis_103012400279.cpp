@@ -108,17 +108,16 @@ void showMaleJournalists(listJurnalis L) {
     }
 }
 
-<<<<<<< HEAD
 string getValidString(const string& prompt) {
     string input;
     while (true) {
         cout << prompt;
         getline(cin, input);
-        
+
         if (!input.empty()) {
             return input;
         }
-        
+
         cout << "Input tidak boleh salah!\n";
     }
 }
@@ -128,12 +127,12 @@ int getValidInteger(const string& prompt) {
     while (true) {
         cout << prompt;
         getline(cin, input);
-        
+
         if (input.empty()) {
             cout << "Input tidak boleh salah!\n";
             continue;
         }
-        
+
         bool isNumber = true;
         for (char c : input) {
             if (!isdigit(c)) {
@@ -141,28 +140,28 @@ int getValidInteger(const string& prompt) {
                 break;
             }
         }
-        
+
         if (!isNumber) {
             cout << "Input harus berupa ANGKA!\n";
             continue;
         }
-        
+
         return stoi(input);
     }
 }
 
 int getValidUmur() {
     string input;
-    
+
     while (true) {
         cout << "Umur: ";
         getline(cin, input);
-        
+
         if (input.empty()) {
             cout << "Input tidak boleh salah!\n";
             continue;
         }
-        
+
         bool isNumber = true;
         for (char c : input) {
             if (!isdigit(c)) {
@@ -170,18 +169,18 @@ int getValidUmur() {
                 break;
             }
         }
-        
+
         if (!isNumber) {
             cout << "Umur harus berupa ANGKA!\n";
             continue;
         }
-        
+
         int umur = stoi(input);
         if (umur < 1 || umur > 120) {
             cout << "Umur harus antara 1 - 120 tahun!\n";
             continue;
         }
-        
+
         return umur;
     }
 }
@@ -191,18 +190,17 @@ char getValidGender() {
     while (true) {
         cout << "Gender (L/P): ";
         getline(cin, input);
-        
-        if (input.length() == 1 && (input[0] == 'L' || input[0] == 'P' || 
+
+        if (input.length() == 1 && (input[0] == 'L' || input[0] == 'P' ||
                                      input[0] == 'l' || input[0] == 'p')) {
             return toupper(input[0]);
         }
-        
+
         cout << "Gender harus L atau P!\n";
     }
 }
 
-void menuJournalistAdmin(listJurnalis &L) {
-=======
+
 void insertNewsFromJournalist(listBerita &LB, listJurnalis &LJ, string idJurnalis) {
     adrJurnalis j = findJournalistByID(LJ, idJurnalis);
 
@@ -248,7 +246,6 @@ void insertNewsFromJournalist(listBerita &LB, listJurnalis &LJ, string idJurnali
 }
 
 void menuJournalistAdmin(listJurnalis &L, listBerita &LB) {
->>>>>>> 8d4acfae3ae6bfd3468c93ae86af217a498da2fe
     int choice = -1;
     dataJurnalis d;
     string key;
@@ -286,19 +283,16 @@ void menuJournalistAdmin(listJurnalis &L, listBerita &LB) {
 
         if (choice >= 1 && choice <= 3) {
             cout << "Masukkan Data Jurnalis Baru:\n";
-<<<<<<< HEAD
-    
-            // d.id = getValidInteger("ID: ");
+
             d.id = to_string(getValidInteger("ID: "));
-    
+
             cout << "Nama: ";
             cin >> d.nama;
-    
+
             d.umur = getValidUmur();
-    
+
             cout << "Gender (L/P): ";
             cin >> d.gender;
-=======
 
             bool validID = false;
             while (!validID) {
@@ -315,16 +309,7 @@ void menuJournalistAdmin(listJurnalis &L, listBerita &LB) {
             cout << "Nama: "; getline(cin, d.nama);
             cout << "Umur: "; cin >> d.umur;
             cout << "Gender (L/P): "; cin >> d.gender;
->>>>>>> 8d4acfae3ae6bfd3468c93ae86af217a498da2fe
         }
-
-       // if (choice >= 1 && choice <= 3) {
-        //    cout << "Masukkan Data Jurnalis Baru:\n";
-         //   cout << "ID: "; cin >> d.id;
-        //    cout << "Nama: "; cin >> d.nama;
-        //    cout << "Umur: "; cin >> d.umur;
-        //    cout << "Gender (L/P): "; cin >> d.gender;
-       // }
 
         switch (choice) {
         case 1:

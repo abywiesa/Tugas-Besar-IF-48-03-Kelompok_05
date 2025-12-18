@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1766042098 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\berita_103012400017.cpp
+1766047121 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\berita_103012400017.cpp
 	"header.h"
 	<iostream>
 
-1766038553 c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\header.h
+1766046078 c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\header.h
 	<iostream>
 	<string>
 
-1766036278 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\berita_103012400279.cpp
+1766046160 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\berita_103012400279.cpp
 	"header.h"
 	<iostream>
 
@@ -15,7 +15,7 @@
 	"header.h"
 	<iostream>
 
-1766038557 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\jurnalis_103012400279.cpp
+1766047138 source:c:\users\adsan\onedrive\documents\tugas-besar-if-48-03-kelompok_05\tugas-besar-if-48-03-kelompok_05\jurnalis_103012400279.cpp
 	"header.h"
 	<iostream>
 
