@@ -80,4 +80,10 @@ void showMaleJournalists(listJurnalis L);
 void showFemaleJournalists(listJurnalis L);
 void menuJournalistAdmin(listJurnalis &L);
 
+
+int getValidInteger(const string& prompt);
+int getValidUmur();
+char getValidGender();
+string getValidString(const string& prompt);
+
 #endif

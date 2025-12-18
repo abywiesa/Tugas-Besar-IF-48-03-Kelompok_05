@@ -114,29 +114,28 @@ void menuNewsAdmin(listBerita &L) {
         cout << "0. Kembali\n";
         cout << "Pilihan: ";
         cin >> choice;
+        cin.ignore(); // PENTING: Clear buffer setelah cin >>
 
         if (choice == 1) {
             dataBerita d;
-            cout << "ID: "; cin >> d.id;
-            cout << "Judul: "; cin >> d.judul;
-            cout << "Kategori: "; cin >> d.kategori;
-            cout << "Tanggal: "; cin >> d.tanggal;
+            cout << "Masukkan Data Berita:\n";
+            d.id = getValidString("ID: ");
+            d.judul = getValidString("Judul: ");
+            d.kategori = getValidString("Kategori: ");
+            d.tanggal = getValidString("Tanggal: ");
 
             insertNewsLast(L, createNewsElement(d));
+            cout << "Berita berhasil ditambahkan!\n";
         }
         else if (choice == 2) {
-            string x;
-            cout << "Masukkan ID: ";
-            cin >> x;
+            string x = getValidString("Masukkan ID: ");
             deleteNewsByID(L, x);
         }
         else if (choice == 3) {
             showAllNews(L);
         }
         else if (choice == 4) {
-            string id;
-            cout << "ID yang akan diperbarui: ";
-            cin >> id;
+            string id = getValidString("ID yang akan diperbarui: ");
             updateNews(L, id);
         }
     }

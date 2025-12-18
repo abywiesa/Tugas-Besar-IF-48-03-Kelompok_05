@@ -35,35 +35,7 @@ int getValidMenuChoice(int minChoice, int maxChoice) {
     }
 }
 
-int getValidUmur() {
-    string input;
 
-    while (true) {
-        cout << "Umur: ";
-        getline(cin, input);
-
-        bool isNumber = !input.empty();
-        for (char c : input) {
-            if (!isdigit(c)) {
-                isNumber = false;
-                break;
-            }
-        }
-
-        if (!isNumber) {
-            cout << "Umur harus berupa ANGKA!\n";
-            continue;
-        }
-
-        int umur = stoi(input);
-        if (umur < 1 || umur > 120) {
-            cout << "Umur harus antara 1 - 120 tahun!\n";
-            continue;
-        }
-
-        return umur;
-    }
-}
 
 void loadDummyData(listBerita &LB, listJurnalis &LJ) {
     cout << "\n+========================================+\n";
@@ -94,7 +66,7 @@ void loadDummyData(listBerita &LB, listJurnalis &LJ) {
     insertJournalistLast(LJ, createJournalistElement(j4));
     insertJournalistLast(LJ, createJournalistElement(j5));
 
-    cout << "✓ 5 Berita dan 5 Jurnalis berhasil dimuat!\n";
+    cout << " 5 Berita dan 5 Jurnalis berhasil dimuat!\n";
 }
 
 bool isNewsIDDuplicate(listBerita L, string id) {

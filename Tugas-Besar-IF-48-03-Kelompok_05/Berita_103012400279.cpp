@@ -74,10 +74,10 @@ void updateNews(listBerita &L, string idTarget) {
         cout << "Berita dengan ID " << idTarget << " tidak ditemukan.\n";
     } else {
         cout << "Data Ditemukan. Masukkan data baru:\n";
-        cout << "ID Baru      : "; cin >> p->info.id;
-        cout << "Judul Baru   : "; cin >> p->info.judul;
-        cout << "Kategori Baru: "; cin >> p->info.kategori;
-        cout << "Tanggal Baru : "; cin >> p->info.tanggal;
+        p->info.id = getValidString("ID Baru: ");
+        p->info.judul = getValidString("Judul Baru: ");
+        p->info.kategori = getValidString("Kategori Baru: ");
+        p->info.tanggal = getValidString("Tanggal Baru: ");
         cout << "Update berhasil.\n";
     }
 }
